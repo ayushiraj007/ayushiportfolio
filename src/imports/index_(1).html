@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Ayushi's Portfolio." />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./favicon.png" type="image/x-png">
+    <title>Portfolio | Ayushi </title>
+</head>
+<body oncontextmenu="return false">
+
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
+
+<!-- navbar starts -->
+<header>
+      
+    <a href="" class="logo"><img src="./favicon.png" / style="max-height:20px; "></a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li>
+                <a href="https://drive.google.com/file/d/11PHPmnLC948DcNSlRsLQs_-XvnWNIVpD/view?usp=sharing" target="_blank"> Resume</a>
+            </li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+
+    <div class="content">
+        
+        <img src="./assets/images/educat/wallpaper.png" alt="Background" class="background-video">
+        <div id="overlay">
+            <h2>Hi,<br /> I'm Ayushi <span>Raj</span></h2>
+            <p>i am into <span class="typing-text"></span></p>
+            <a href="#about" class="btn">
+                <span>About Me</span>
+                <i class="fas fa-arrow-circle-down"></i>
+            </a>
+            <div class="socials">
+                <ul class="social-icons">
+                    <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/ayushi-raj-57b811120/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- hero section ends -->
+<section class="about" id="articles">
+    <h2 class="heading"><i class="fas fa-pencil-alt"></i> Articles </h2>
+
+<div id="medium-articles"></div>
+
+<script>
+  async function loadMediumFeed() {
+    const rssUrl = `https://medium.com/feed/@ayushi.raj7a`;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+
+      const container = document.getElementById("medium-articles");
+      container.innerHTML = "";
+
+      data.items.slice(0, 3).forEach(item => { // show top 3 articles
+        const article = document.createElement("div");
+        article.className = "article-card";
+        article.innerHTML = `
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.description.replace(/<[^>]+>/g, '').substring(0, 150)}...</p>
+          <div class="resumebtn" style="margin-top:0rem;">
+            <a href="${item.link}" target="_blank" class="btn" style="padding: 1rem 1rem; color: #655A7C; box-shadow: none; font-size: 2rem;"><span>Read more...</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+        `;
+        container.appendChild(article);
+      });
+    } catch (err) {
+      console.error("Error loading Medium feed:", err);
+    }
+  }
+
+  loadMediumFeed();
+</script>
+
+<style>
+  #medium-articles {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  .article-card {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fafafa;
+  }
+  .article-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 2.5rem;
+  }
+  .article-card a {
+    text-decoration: none;
+    color: #655A7C; 
+    font-size: 2rem;
+  }
+</style>
+<div id="medium-articles">
+    <div class="article-card" style="
+    margin-top: 8px;
+">
+    <a href = "https://drive.google.com/file/d/18p4VwCGJPCi-ce41mLnsLPSOz8cIR7cl/view?usp=sharing">
+        <h3 class="heading">more personal...</h3>
+    </a>
+
+    
+</div>
+</section>
+<section class="skills" id="work">
+    <h2 class="heading"><i class="fas fa-clipboard-check"></i> Work </h2>
+    <div id="medium-articles">
+    <div class="article-card">
+        <a href = "https://drive.google.com/drive/folders/1np5GySihQZWHfdEZ5PBADIRUZ8bwwly9">
+            <h3 class="heading"><i>Learn & Play</i></h3>
+        </a>
+    </div>
+    <div class="article-card">
+        <a href = "https://drive.google.com/file/d/1ju_ZtI5J76o433heufyNRjeibSXVPHqX/view?usp=sharing">
+            <h3 class="heading"><i>Projects!</i></h3>
+        </a>
+    </div>
+    </div>
+    <div id="medium-articles"></div>
+</section>
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About Me</h2>
+    
+    <div class="row">
+
+    <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/profile2.jpeg" alt="">
+    </div>
+    <div class="content" style="color: #655A7C;">
+        <h3>Hello!</h3>
+        
+        <p>
+            I thrive on creativity, problem-solving, and building engaging user interfaces.
+            Outside of tech and strategic innovation, I enjoy arts and crafts, exploring fashion trends, and networking.
+            </p><p>
+            With around seven years of experience in UI development at Deloitte and Accenture, I have ensured seamless digital experiences with intensive collaboration within cross-fucntional teams as well as my clients.
+            My passion for inclusivity and empathy-driven perspective isn't just welcome, it's essential.
+            </p><p>
+            Somewhere along my career journey, I realized that while I loved the creativity of making user-friendly equitable experiences come to life, 
+            I was as curious about the bigger picture — how decisions are made, how strategies come together, and how products 
+            grow beyond the interface. It then turned into a desire to pursue an MBA, as a natural extension of wanting more access to the business side of things, envisioning myself as someone who makes impact where it's needed. It opens another door to understand how design connects with leadership, innovation, and impact.
+            </p><p>
+        </p>
+
+        
+        <div class="box-container">
+            <div class="box">
+                <p><a style="text-transform: none !important;" href="mailto:ayushi_raj@ymail.com"><u><span> e-mail : </span> ayushi_raj@ymail.com</a></u></p>
+            </div>
+        </div>
+        
+        <div class="resumebtn">
+            <a href="https://drive.google.com/file/d/1Cxmquoun7mvVPqkDFfQr-X2mC0lsyv1G/view?usp=sharing" target="_blank" class="btn"><span>Resume</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+
+    <h2 class="heading"> <span><i class="fas fa-laptop-code"></i>Skills & Abilities</span></h2>
+
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; " class="row" id="skillsContainer">
+
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=100&id=DgGnQkdkIcqi&format=png&color=000000" />
+                    <span>Problem Solving</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=100&id=46851&format=png&color=000000" />
+                    <span>Stratgic Planning</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=100&id=Tv9PzYbf0vqw&format=png&color=000000" />
+                    <span>Microsoft Excel</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=100&id=76899&format=png&color=000000" />
+                    <span>MySQL</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=100&id=MH78uG3ETaOn&format=png&color=000000" />
+                    <span>Key Performance Indicators</span>
+                </div>
+            </div>
+            
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=uJM6fQYqDaZK&format=png&color=000000" />
+                    <span>Typescript</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" />
+                    <span>JavaScript</span>
+                </div>
+            </div>
+
+
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" />
+                    <span>HTML5</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/color/48/000000/css3.png" />
+                    <span>CSS3</span>
+                </div>
+            </div>
+
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=38766&format=png&color=000000" />
+                    <span>Salesforce</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=32312&format=png&color=000000" />
+                    <span>Responsive Web Development</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=iFag1p40O89x&format=png&color=A82A2A" />
+                    <span>SDLC</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=40886&format=png&color=4E86B3" />
+                    <span>TDD</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=58853&format=png&color=D5C138" />
+                    <span>Time Management</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=PV2NAkRVK2rH&format=png&color=000000" />
+                    <span>Organization</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=SO25c7WqMWBh&format=png&color=000000" />
+                    <span>Adaptability</span>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="info">
+                    <img src="https://img.icons8.com/?size=48&id=j9DnICNnlhGk&format=png&color=000000" />
+                    <span>Angular</span>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="education" id="education">
+
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> Education</h1>
+  <div class="box-container">
+      <div class="box">
+          <div style="display: flex; align-items: center; " class="image">
+              <img draggable="false" style="padding: 5%; object-fit: contain; height: 80%; " src="./assets/images/educat/Simon_logo_bottom.png" alt="">
+          </div>
+          <div class="content">
+              <h4 style="color: #655A7C;">Masters of Business Administration</h4>
+              <h3 style=" color: #655A7C;">Strategy and Product Management</h3>
+              <p style=" color: #655A7C;">Simon Business School</p>
+              <p style = "color: #655A7C;">University of Rochester </p>
+              <h4 style="color: #655A7C;">May 2027</h4>
+          </div>
+      </div>
+  </div>
+  <div class="box-container">
+      <div class="box">
+          <div style="display: flex; align-items: center; " class="image">
+              <img draggable="false" style="padding: 5%; object-fit: contain; height: 80%; " src="./assets/images/educat/manipal.png" alt="">
+          </div>
+          <div class="content">
+              <h4 style="color: #655A7C;">Bachelor of Technology </h4>
+              <h3 style=" color: #655A7C;">Computer and Communication Engineering</h3>
+              <p style=" color: #655A7C;">Manipal Institute of Technology</p>
+              <h4 style="color: #655A7C;">2014-2018</h4>
+          </div>
+      </div>
+
+
+  </div>
+</section>
+<!-- education section ends -->
+
+
+<!-- experience section starts -->
+<section class="experience" id="experience">
+
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
+
+  <div class="timeline">
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Accenture</h2>
+        </div>
+        <div class="desc">
+            <h3>
+                Senior Consultant
+            </h3>
+            <p>Nov 2023 - June 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+            <h2>Deloitte</h2>
+        </div>
+        <div class="desc">
+            <h3>Consultant</h3>
+            <p>May 2022 - Jun 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Deloitte</h2>
+        </div>
+        <div class="desc">
+            <h3>Analyst</h3>
+            <p>Mar 2019 - May 2022</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+            <h2>Tata Consultancy Services</h2>
+        </div>
+        <div class="desc">
+            <h3>Associate Software Engineer</h3>
+            <p>Oct 2018 - Feb 2022</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container right">
+      <div class="content">
+        <div class="tag">
+            <h2>ion</h2>
+        </div>
+        <div class="desc">
+            <h3>Technical Intern</h3>
+            <p>Jun 2016 - July 2016</p>
+        </div>
+      </div>
+    </div> -->
+
+    
+  </div>
+
+ 
+
+</section>
+<!-- experience section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Ayushi's Portfolio</h3>
+          <p>Thank you for visiting my portfolio. </p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+          <a href="#articles"><i class="fas fa-chevron-circle-right"></i> articles</a>
+          <a href="https://drive.google.com/file/d/1Cxmquoun7mvVPqkDFfQr-X2mC0lsyv1G/view?usp=sharing"><i class="fas fa-chevron-circle-right"></i> resume</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-envelope"></i>ayushi_raj@ymail.com</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/ayushi-raj-57b811120/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+          </div>
+      </div>
+  </div>
+
+
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
